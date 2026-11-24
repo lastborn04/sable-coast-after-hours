@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+<title>Sable Coast: After Hours</title>
+</head>
+<body>
+<canvas id="view" aria-label="Sable Coast game world"></canvas>
+<div class="grading"></div>
+<section id="hud" hidden aria-label="Game status">
+  <div class="objective">
+    <div class="kicker"><span></span><span id="district">Oceanfront Boulevard</span></div>
+    <h2 id="mission">Dead Air</h2>
+    <p id="task"></p>
+  </div>
+  <div class="status">
+    <div id="wanted" aria-label="Wanted level"></div>
+    <div id="money"></div>
+    <div id="rank"></div>
+  </div>
+  <div id="notice" role="status"></div>
+  <div id="prompt"></div>
+  <div class="radar">
+    <div class="mapframe"><canvas id="map" width="180" height="180" aria-label="City minimap"></canvas><b>N</b></div>
+    <div class="meter" title="Health"><span>VIT</span><i id="health"></i></div>
+    <div class="meter armor" title="Armor"><span>ARM</span><i id="armor"></i></div>
+  </div>
+  <div id="speed" hidden><strong id="velocity">0</strong><small>KM/H</small><div id="vehicle"></div><div id="condition"></div></div>
+  <div class="controls"><kbd>WASD</kbd> Move <kbd>E</kbd> Interact <kbd>Esc</kbd> Pause</div>
+</section>
+<div id="touch" hidden aria-label="Touch controls">
+  <div class="touch-move">
+    <button data-code="KeyW" aria-label="Forward">▲</button>
+    <button data-code="KeyA" aria-label="Left">◀</button>
+    <button data-code="KeyS" aria-label="Reverse">▼</button>
+    <button data-code="KeyD" aria-label="Right">▶</button>
+  </div>
+  <div class="touch-actions">
+    <button data-code="Space">Brake</button>
+    <button data-code="KeyE">Interact</button>
+    <button data-code="KeyF">Strike</button>
+    <button data-code="Escape">Pause</button>
+  </div>
+</div>
+<section id="menu" aria-label="Main menu">
+  <div class="menu-inner">
+    <div class="kicker"><span></span> An original coastal crime story</div>
+    <h1>SABLE<br>COAST<span>.</span></h1>
+    <p class="subtitle">AFTER HOURS</p>
+    <div class="separator"></div>
+    <button id="start">New game <b>↗</b></button>
+    <button id="continue">Continue <b>↗</b></button>
+    <button id="setup">Settings <b>↗</b></button>
+  </div>
+  <div class="menu-footer"><span>MARISOL BAY</span><span>18:42 LOCAL</span></div>
+</section>
+<section id="overlay" aria-label="Game menu" hidden>
+  <div class="dialog">
+    <div class="kicker"><span></span> Sable Coast / After Hours</div>
+    <h2 id="panelTitle">Paused</h2>
+    <p id="panelText"></p>
+    <div id="options">
+      <label>Sound <input id="volume" type="range" min="0" max="100" value="48"></label>
+      <label>Render scale <select id="quality"><option value="0">Adaptive</option><option value="1">High</option><option value=".8">Balanced</option><option value="-.8">Lite (balanced resolution)</option><option value=".62">Low</option></select></label>
+      <label>Lighting <select id="lighting"><option value="story">Story</option><option value="night">Night</option><option value="sunset">Sunset</option></select></label>
+      <p class="keymap">WASD / arrows move and drive · Shift runs · Drag the mouse to orbit · E enters or exits a vehicle · F or click strikes · Space brakes · M saves · Esc pauses</p>
+    </div>
+    <button id="resume">Resume <b>↗</b></button>
+    <button id="restart">Restart from checkpoint <b>↗</b></button>
+    <button id="home">Return to title <b>↗</b></button>
+  </div>
+</section>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
